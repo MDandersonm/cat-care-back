@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nerd2.catcare.user.dao.UserDAO">
+
+    <select id="valid_ID" parameterType="map" resultType="int">
+
+    select count(*) from User
+    where user_id = #{userID}
+
+    </select>
+
+    <insert id="createUser" parameterType="map">
+insert into User (user_id , password, userName)
+values (#{userID},#{password},#{userName})
+    </insert>
+
+
+</mapper>
