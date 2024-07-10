@@ -18,7 +18,7 @@ UserService userService;
                                   @RequestParam String password,
                                   @RequestParam String userName
                                   ){
-
+        System.out.println("test");
         JSONObject param = new JSONObject();
         JSONObject result = new JSONObject();
 
