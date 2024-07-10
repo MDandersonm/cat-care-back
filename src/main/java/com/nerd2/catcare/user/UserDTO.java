@@ -10,11 +10,14 @@ import lombok.Setter;
 @Setter
 public class UserDTO {
 
-    String userID;
-    String userName;
-    String password;
+    private String userId;
+    private String userName;
+    private String email;
+    private String password;
+    private String phone;
+    private String address;
+    private String birthday;
+    private int gender;
+    private int userLevel;
 
-    public UserDTO(){
-
-    }
 }

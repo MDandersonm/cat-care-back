@@ -3,16 +3,30 @@
 <mapper namespace="com.nerd2.catcare.user.dao.UserDAO">
 
     <select id="valid_ID" parameterType="map" resultType="int">
-
-    select count(*) from User
-    where user_id = #{userID}
-
+        select count(*) from User
+        where user_id = #{userId}
     </select>
 
     <insert id="createUser" parameterType="map">
-insert into User (user_id , password, userName)
-values (#{userID},#{password},#{userName})
+        insert into User (user_id,userName, email,password,phone,address,birthday,gender,user_level)
+        values (#{userId}, #{userName}, #{email},#{password},#{phone},#{address},#{birthday},#{gender},#{user_level})
     </insert>
 
+    <select id="userIDChk" parameterType="map" resultType="int">
+        SELECT Count(*) from User
+        where user_id = #{userId}
+    </select>
+
+    <select id="passwordChk" parameterType="map" resultType="int">
+        SELECT COunt(*) from User
+        where user_id = #{userId} and password = #{password}
+    </select>
+
+    <update id="insertRetoken" parameterType="map">
+        update User
+        set refresh_token = #{refreshToken}
+        Where user_id = #{userID}
+
+    </update>
 
 </mapper>
